@@ -1,0 +1,8 @@
+clobber=
+clobber_rdoc=Remove rdoc products
+default=
+html=
+html/index.html=
+rdoc=Build the rdoc HTML Files
+rerdoc=Force a rebuild of the RDOC files
+walk_the_path=
