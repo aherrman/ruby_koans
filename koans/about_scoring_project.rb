@@ -49,6 +49,8 @@ def tripple_score(value)
   value * 100
 end
 
+#def nil.+(value) value end
+
 def count_dice_types(dice)
   dice.inject({}) { |counts, value|
     counts[value] = 0 if counts[value].nil?
