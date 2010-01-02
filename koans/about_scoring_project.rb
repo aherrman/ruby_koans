@@ -30,7 +30,33 @@ require 'edgecase'
 # Your goal is to write the score method.
 
 def score(dice)
-  # You need to write this method
+  count_dice_types(dice).each_pair.inject(0) { |score, pair|
+    value, count = pair
+    score + score_dice_value(value, count)
+  }
+end
+
+def score_dice_value(value, count)
+  return 0 if count == 0
+  return tripple_score(value) + score_dice_value(value, count - 3) if count > 2
+  return 100 * count if value == 1
+  return 50 * count if value == 5
+  0
+end
+
+def tripple_score(value)
+  return 1000 if value == 1
+  value * 100
+end
+
+#def nil.+(value) value end
+
+def count_dice_types(dice)
+  dice.inject({}) { |counts, value|
+    counts[value] = 0 if counts[value].nil?
+    counts[value] += 1
+    counts
+  }
 end
 
 class AboutScoringAssignment < EdgeCase::Koan
